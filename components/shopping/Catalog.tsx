@@ -10,7 +10,9 @@ function Catalog() {
   useEffect(() => {
     const fetchCoffeeData = async () => {
       const fetchdata = await fetch(
-        `${"devaloment"===process.env.NEXT_PUBLIC_ENV ? process.env.NEXT_PUBLIC_LIFF_URL : null}/api/food`
+        "devaloment" === process.env.NEXT_PUBLIC_ENV
+          ? `${process.env.NEXT_PUBLIC_LIFF_URL}/api/food`
+          : `/api/food`
       );
       console.log(typeof fetchdata);
       const coffeeData = await fetchdata.json();
@@ -86,7 +88,9 @@ function Catalog() {
             <IconButton
               size="small"
               className="px-3 mx-2"
-              onClick={() => setCoffee((prev) => prev===0? prev: prev - 1)}
+              onClick={() =>
+                setCoffee((prev) => (prev === 0 ? prev : prev - 1))
+              }
             >
               -
             </IconButton>
@@ -152,7 +156,7 @@ function Catalog() {
             className="mt-3 w-full border-[#06C755] text-[#06C755]
           hover:border-[#06c756f0] hover:text-[#06c756f0] hover:bg-[#06c7561a]
           active:border-[#06c756e0] active:text-[#06c756e0] active:bg-[#06c75620]"
-          disabled={coffee===0? true : false}
+            disabled={coffee === 0 ? true : false}
           >
             Order ☕️
           </Button>
