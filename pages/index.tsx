@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
-import Profile from "@/components/Profile";
 import Link from "next/link";
 import { Button } from "@mui/material";
 

@@ -1,7 +1,7 @@
 import BannerName from "@/components/shopping/BannerName";
 import Catalog from "@/components/shopping/Catalog";
 import Navbar from "@/components/shopping/Navbar";
-import { Box, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import React from "react";
 
 function shopping() {
