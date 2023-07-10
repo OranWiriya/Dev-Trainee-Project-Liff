@@ -10,7 +10,7 @@ function Catalog() {
   useEffect(() => {
     const fetchCoffeeData = async () => {
       const fetchdata = await fetch(
-        `${process.env.NEXT_PUBLIC_LIFF_URL}/api/food`
+        `${"devaloment"===process.env.NEXT_PUBLIC_ENV ? process.env.NEXT_PUBLIC_LIFF_URL : null}/api/food`
       );
       console.log(typeof fetchdata);
       const coffeeData = await fetchdata.json();
