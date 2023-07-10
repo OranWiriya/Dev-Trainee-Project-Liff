@@ -19,25 +19,29 @@ export default function Home() {
       sm:my-12 
       lg:my-20 "
       >
-        <Button
-          variant="outlined"
-          className="w-32 h-14 mb-10
+        <Link href={"/profile"}>
+          <Button
+            variant="outlined"
+            className="w-32 h-14 mb-10
           sm:w-52 sm:h-16
           lg:w-64 lg:h-20"
-        >
-          <Link href={"/profile"}>Profile</Link>
-        </Button>
-        <Button
-          variant="outlined"
-          className="w-32 h-14 mb-10
+          >
+            Profile
+          </Button>
+        </Link>
+        <Link href={"/shopping"}>
+          <Button
+            variant="outlined"
+            className="w-32 h-14 mb-10
           sm:w-52 sm:h-16
           lg:w-64 lg:h-20
           border-[#06C755] text-[#06C755]
           hover:border-[#06c756f0] hover:text-[#06c756f0] hover:bg-[#06c7561a]
           active:border-[#06c756e0] active:text-[#06c756e0] active:bg-[#06c75620]"
-        >
-          <Link href={"/shopping"}>Let Shopping</Link>
-        </Button>
+          >
+            Let Shopping
+          </Button>
+        </Link>
       </div>
     </main>
   );
