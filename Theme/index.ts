@@ -14,7 +14,8 @@ const theme = createTheme({
           marginBottom: '2.5rem',
           borderColor: '#06C755',
           color: '#06C755',
-          '&, :focus, :hover': {
+          backgroundColor: 'transparent',
+          '&, :hover': {
             borderColor: '#06c756f0',
             color: '#06c756f0',
             backgroundColor: '#06c7561a'
