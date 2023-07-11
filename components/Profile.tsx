@@ -1,25 +1,24 @@
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 function Profile() {
-  const [profile, setProfile] = useState<string | null | any>("");
+  const [profile, setProfile] = useState<string | null | any>('');
   const [data, setData] = useState<string | number | any>(null);
 
   useEffect(() => {
     const profilefetch = async () => {
-      const liff = (await import("@line/liff")).default;
+      const liff = (await import('@line/liff')).default;
       await liff.ready;
-      const profile = await liff.getProfile();
-      setProfile(profile);
+      const profileLine = await liff.getProfile();
+      setProfile(profileLine);
       const device = liff.getOS();
-      setData(device)
+      setData(device);
     };
 
     profilefetch();
   }, [profile.userId]);
 
   return (
-    <>
       <div className="flex flex-wrap flex-col content-center justify-center items-center">
         <div>
           {profile.pictureUrl && (
@@ -32,11 +31,13 @@ function Profile() {
           )}
         </div>
         <div>Line Name: {profile.displayName}</div>
-        <div>LineID: {profile.userId}</div>
+        <div>
+          LineID:
+          {profile.userId}
+        </div>
         <div>Status Message: {profile.statusMessage}</div>
         <div>Device: {data}</div>
       </div>
-    </>
   );
 }
 

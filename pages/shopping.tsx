@@ -6,7 +6,6 @@ import React from "react";
 
 function shopping() {
   return (
-    <>
       <Container
         sx={{
           display: "flex",
@@ -23,7 +22,6 @@ function shopping() {
         <BannerName />
         <Catalog />
       </Container>
-    </>
   );
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import liff from "@line/liff";
 import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
@@ -10,13 +11,11 @@ function Catalog() {
   useEffect(() => {
     const fetchCoffeeData = async () => {
       const fetchdata = await fetch(
-        "devaloment" === process.env.NEXT_PUBLIC_ENV
+        process.env.NEXT_PUBLIC_ENV === "devaloment"
           ? `${process.env.NEXT_PUBLIC_LIFF_URL}/api/food`
           : `/api/food`
       );
-      console.log(typeof fetchdata);
       const coffeeData = await fetchdata.json();
-      console.log(coffeeData);
       setCatalog(coffeeData);
     };
 
@@ -24,7 +23,6 @@ function Catalog() {
   }, []);
 
   const handleSubmit = () => {
-    console.log(`Total prices: ${60 * coffee}`);
     const messageText = `Liff project shopping app send your order :
     coffee : ${coffee} cup(s)
     Total prices: ${60 * coffee} Baht
@@ -41,7 +39,7 @@ function Catalog() {
         liff.closeWindow();
       })
       .catch((err) => {
-        window.alert("error!!" + err);
+        window.alert(`error!! + ${err}`);
       });
   };
 
@@ -63,17 +61,17 @@ function Catalog() {
           <Typography
             variant="h5"
             gutterBottom
-            component={"div"}
-            textAlign={"center"}
+            component="div"
+            textAlign="center"
           >
             Coffee
           </Typography>
           <Typography
             variant="body2"
             gutterBottom
-            fontStyle={"italic"}
-            textAlign={"center"}
-            color={"#8e8e93"}
+            fontStyle="italic"
+            textAlign="center"
+            color="#8e8e93"
           >
             &quot; Coffee is a language itself. &quot;
           </Typography>
@@ -129,7 +127,7 @@ function Catalog() {
             borderRadius: "5px",
           }}
         >
-          <Typography variant="h6" gutterBottom component={"div"}>
+          <Typography variant="h6" gutterBottom component="div">
             In Cart
           </Typography>
           <Typography variant="body1" gutterBottom>
@@ -153,10 +151,8 @@ function Catalog() {
           <Button
             variant="outlined"
             onClick={handleSubmit}
-            className="mt-3 w-full border-[#06C755] text-[#06C755]
-          hover:border-[#06c756f0] hover:text-[#06c756f0] hover:bg-[#06c7561a]
-          active:border-[#06c756e0] active:text-[#06c756e0] active:bg-[#06c75620]"
-            disabled={coffee === 0 ? true : false}
+            className="mt-3 w-full"
+            disabled={coffee === 0}
           >
             Order ☕️
           </Button>
